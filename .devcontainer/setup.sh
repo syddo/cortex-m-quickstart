@@ -12,19 +12,17 @@ apt-get install -y \
   openssl \
   qemu \
   gcc-arm-none-eabi \
-  binutils-arm-none-eabi \
-  gdb-arm-none-eabi \
-  openocd 
+
 
 ## Install rustup and common components
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
-rustup target add thumbv6m-none-eabi thumbv7m-none-eabi thumbv7em-none-eabi thumbv7em-none-eabihf
-# curl https://sh.rustup.rs -sSf | sh -s -- -y 
-# rustup install nightly
-# rustup component add rustfmt
-# rustup component add rustfmt --toolchain nightly
-# rustup component add clippy 
-# rustup component add clippy --toolchain nightly
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 
+# rustup target add thumbv6m-none-eabi thumbv7m-none-eabi thumbv7em-none-eabi thumbv7em-none-eabihf
+curl https://sh.rustup.rs -sSf | sh -s -- -y 
+rustup install stable
+rustup component add rustfmt
+rustup component add rustfmt --toolchain nightly
+rustup component add clippy 
+rustup component add clippy --toolchain nightly
 
 cargo install cargo-expand
 cargo install cargo-edit
